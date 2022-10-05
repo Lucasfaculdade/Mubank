@@ -4,7 +4,11 @@
       <th class="tabela__cabecalho__conteudo">Valor</th>
       <th class="tabela__cabecalho__conteudo">Conta Destino</th>
     </thead>
+<<<<<<< HEAD
     <tbody *ngIf="transferencias else listaVazia">
+=======
+    <tbody *ngIf="transferencias.length > 0; else listaVazia">
+>>>>>>> acc5263c0a505d3c5733a5681a9fcf8be6ca90f4
        <tr class="tabela__linha"*ngFor="let tranferencia of transferencias">
         <td class="tabela__conteudo">{{ tranferencia.data | date: "short"}}</td>
         <td class="tabela__conteudo">{{ tranferencia.value | currency }}</td>
@@ -15,4 +19,8 @@
 
 <ng-template #listaVazia>
    <p> Nenhuma operação cadastrada</p>
+<<<<<<< HEAD
 </ng-template>
+=======
+</ng-template>
+>>>>>>> acc5263c0a505d3c5733a5681a9fcf8be6ca90f4
