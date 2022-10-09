@@ -1,5 +1,4 @@
 :root {
-<<<<<<< HEAD
   --primary: #369c38;
   --secondary: #132A13;
   --padding: 15px;
@@ -16,21 +15,3 @@
   padding: 30px;
   margin: 0 auto;
 }
-=======
-    --primary: #369c38;
-    --secondary: #132A13;
-    --padding: 15px;
-    --cinza : #405040;
-    --cinza-claro: #dedede;
-  }
-  
-  * {
-    font-family: "Roboto", sans-serif;
-  }
-  
-  .container {
-    max-width: 400px;
-    padding: 30px;
-    margin: 0 auto;
-  }
->>>>>>> acc5263c0a505d3c5733a5681a9fcf8be6ca90f4

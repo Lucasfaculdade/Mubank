@@ -1,0 +1,36 @@
+*   [33mcommit f4e477b752116168de9a6daaaa256a9fc153cf25[m[33m ([m[1;36mHEAD -> [m[1;32mjob[m[33m, [m[1;31morigin/job[m[33m)[m
+[31m|[m[32m\[m  Merge: cd27317 acc5263
+[31m|[m [32m|[m Author: Lucas no DER <lucasfaculdade5@gmail.com>
+[31m|[m [32m|[m Date:   Wed Oct 5 10:57:24 2022 -0300
+[31m|[m [32m|[m 
+[31m|[m [32m|[m     subindo projeto do serviço
+[31m|[m [32m|[m 
+[31m|[m * [33mcommit acc5263c0a505d3c5733a5681a9fcf8be6ca90f4[m[33m ([m[1;31morigin/main[m[33m)[m
+[31m|[m [32m|[m Author: Lucas do Couto <lucasfaculdade5@gmail.com>
+[31m|[m [32m|[m Date:   Sun Oct 2 21:59:29 2022 -0300
+[31m|[m [32m|[m 
+[31m|[m [32m|[m     subindo projeto
+[31m|[m [32m|[m 
+[31m|[m * [33mcommit b8bddf98cc9f024950485458178c7c77f99b4a6a[m
+[31m|[m   Author: unknown <lucasfaculdade5@gmail.com>
+[31m|[m   Date:   Sun Oct 2 21:46:47 2022 -0300
+[31m|[m   
+[31m|[m       Adicionando projeto Mubank
+[31m|[m 
+* [33mcommit cd2731764f051b1517d95ca73d9bb72151ae306e[m
+[32m|[m Author: Lucas no DER <lucasfaculdade5@gmail.com>
+[32m|[m Date:   Tue Oct 4 21:33:32 2022 -0300
+[32m|[m 
+[32m|[m     atualização 04/10
+[32m|[m 
+* [33mcommit b87f4c657368b074ce002be1ecb030844a31ad0e[m
+[32m|[m Author: Lucas Do Couto Menezes <3305711T@der.df.gov.br>
+[32m|[m Date:   Mon Oct 3 15:39:43 2022 -0300
+[32m|[m 
+[32m|[m     Tentado subir projeto no job
+[32m|[m 
+* [33mcommit 28047897b5dc4b0f34c17ae426d7b7d3be6474f7[m
+  Author: Lucas Do Couto Menezes <3305711T@der.df.gov.br>
+  Date:   Mon Oct 3 12:08:35 2022 -0300
+  
+      initial commit
