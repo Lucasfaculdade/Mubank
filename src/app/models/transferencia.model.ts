@@ -1,13 +1,10 @@
-export interface Transferencia {
-    id: any;
-    value: number;
-    conta: string;
-    data: Date;
-}
+  export interface Transferencia {
+      id?: any;
+      value: number;
+      conta: number | string;
+      data?: Date;
+  }
 
-export interface RootObject {
-    transferencia: Transferencia[];
-}
-
-
-
+  export interface RootObject {
+      transferencia: Transferencia[];
+  }

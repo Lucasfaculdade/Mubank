@@ -1,5 +1,7 @@
 import { TransferenciaService } from './../services/transferencia.service';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { Transferencia } from '../models/transferencia.model';
 
 @Component({
   selector: 'app-nova-trans',
@@ -13,17 +15,28 @@ export class NovaTransComponent {
   value!: number;
   conta!: number;
 
-  constructor(private service: TransferenciaService){
+  constructor(private service: TransferenciaService, private router: Router ){
 
   }
 
   trans(){
     console.log('Transferencia em andamento');
-    console.log('................................................');
-    console.log(`Transferencia Efetuado para conta ${this.conta}`);
-    const valueEmit = {value: this.value, conta: this.conta}
-    this.aoTransferir.emit(valueEmit);
-    this.cleanBox();
+
+    const valueEmitir: Transferencia = {
+      value: this.value,
+      conta: this.conta,
+      
+    };
+    
+    this.service.adicionar(valueEmitir).subscribe(
+        (resultado) => {
+          console.log(resultado);
+          this.cleanBox();
+          this.router.navigateByUrl('extrato');  
+        },
+        (error) => console.error(error)
+    );
+    
   }
 
   cleanBox(){

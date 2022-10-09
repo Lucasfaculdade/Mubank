@@ -7,8 +7,10 @@ import { NovaTransComponent } from './nova-trans/nova-trans.component';
 import { ExtractComponent } from './extract/extract.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { AppRoutingModule } from './app-route.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-route.module';
+import { LoginComponent } from './login/login.component';
+
 
 registerLocaleData(localePt, 'pt');
 
@@ -16,7 +18,8 @@ registerLocaleData(localePt, 'pt');
   declarations: [
     AppComponent,
     NovaTransComponent,
-    ExtractComponent
+    ExtractComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
