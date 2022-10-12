@@ -17,7 +17,7 @@ export const routes: Routes = [
 	  path: 'extrato', component: ExtractComponent
 	},
 	{
-	  path: 'nova-transferencia', component: NovaTransComponent
+	  path: 'transferencia', component: NovaTransComponent
 	},
 ];
 

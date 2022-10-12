@@ -28,14 +28,14 @@ export class NovaTransComponent {
       
     };
     
-    this.service.adicionar(valueEmitir).subscribe(
-        (resultado) => {
-          console.log(resultado);
-          this.cleanBox();
-          this.router.navigateByUrl('extrato');  
-        },
-        (error) => console.error(error)
-    );
+    this.service.adicionar(valueEmitir).subscribe({
+      next: (resultado) => {
+        console.log(resultado);
+        this.cleanBox();
+        this.router.navigateByUrl('extrato');  
+      },
+      error: (error) => console.error(error)
+    });
     
   }
 
