@@ -1,27 +1,36 @@
 # Mubank
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+Projeto Mu bank em andamento
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Rodar comando  `ng serve` e para acessar a aplicação acesso o `http://localhost:4200/`.
 
-## Code scaffolding
+## Preview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##Tela de registro de transferencias
+![Screenshot_17](https://user-images.githubusercontent.com/50142068/195436128-61a50a48-c6d0-4b3b-bcf2-7d0608106fcf.png)
 
-## Build
+##Tela para efetuar transferencias 
+![Screenshot_18](https://user-images.githubusercontent.com/50142068/195436146-feb764af-4e69-4bef-997e-ad7efefa39b5.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+##Tela em desenvolvimento
+![Screenshot_19](https://user-images.githubusercontent.com/50142068/195436314-f83aa8f6-1382-47bc-a09d-1569bae62c29.png)
+-- Tela de Login em teste, CSS não foi efetuado -- 
 
-## Running unit tests
+##Em desenvolvimento
+-- Back end --
+-- Banco de Dados --
+-- Tela de Login funcional -- 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+##Linguagens Usadas 
+-- Angular -- 
+-- TypeScript -- 
+-- HTML/CSS --
+-- MYSQL --
+-- JSON --
 
-## Running end-to-end tests
+##BACK-END
+O back ent está sendo desenvolvido em outro diretorio -job_backend- com a linguagem - NEST.JS -, juntamente com o Banco de dados,
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Copyright by Lucas do Couto
