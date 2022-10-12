@@ -16,21 +16,22 @@ Rodar comando  `ng serve` e para acessar a aplicação acesso o `http://localhos
 
 ## Tela em desenvolvimento
 ![Screenshot_19](https://user-images.githubusercontent.com/50142068/195436314-f83aa8f6-1382-47bc-a09d-1569bae62c29.png)
+
 -- Tela de Login em teste, CSS não foi efetuado -- 
 
-##Em desenvolvimento
+## Em desenvolvimento
 -- Back end --
 -- Banco de Dados --
 -- Tela de Login funcional -- 
 
-##Linguagens Usadas 
+## Linguagens Usadas 
 -- Angular -- 
 -- TypeScript -- 
 -- HTML/CSS --
 -- MYSQL --
 -- JSON --
 
-##BACK-END
+## BACK-END
 O back ent está sendo desenvolvido em outro diretorio -job_backend- com a linguagem - NEST.JS -, juntamente com o Banco de dados,
 
 Copyright by Lucas do Couto
