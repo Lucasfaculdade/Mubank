@@ -9,7 +9,8 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-route.module';
-import { LoginComponent } from './login/login.component';
+import { HomeModule } from './home/home.module';
+
 
 
 registerLocaleData(localePt, 'pt');
@@ -19,14 +20,13 @@ registerLocaleData(localePt, 'pt');
     AppComponent,
     NovaTransComponent,
     ExtractComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+ ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'},
     {
