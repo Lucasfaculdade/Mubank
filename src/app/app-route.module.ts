@@ -8,10 +8,11 @@ import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
 	{
-		path: '', redirectTo: 'login', pathMatch: 'full'
+		path: '', redirectTo: 'home', pathMatch: 'full'
 	},
 	{
-		path: 'login', component: HomeComponent
+		path: 'home',
+		loadChildren: ()=> import('./home/home-routing.module').then((m)=>m.HomeRoutingModule),
 	},
 	{
 	  path: 'extrato', component: ExtractComponent
