@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Res, HttpStatus } from "@nestjs/common";
 import { Conta } from "./conta.entity";
 import { ContasService } from "./contas.service";
 
@@ -15,9 +15,10 @@ export class ContaController{
     }
     
     @Post()
-    public criar(@Body() conta: Conta): Conta{
+    public criar(@Body() conta: Conta, @Res() res): Conta{
+        
         const contaCriada = this.contasService.criar(conta);
-
+        res.status(HttpStatus.CREATED).location(`/contas/${contaCriada.numeroDaConta}`).json(contaCriada);
         return contaCriada;
     }
 }
