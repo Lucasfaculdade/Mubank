@@ -1,4 +1,6 @@
 import { Body, Controller, Get, Param, Post, Res, HttpStatus } from "@nestjs/common";
+import { NestRespose } from "../core/http/nest_response";
+import { NestResposneBuilder } from "../core/http/nest_response_builder";
 import { Conta } from "./conta.entity";
 import { ContasService } from "./contas.service";
 
@@ -15,10 +17,11 @@ export class ContaController{
     }
     
     @Post()
-    public criar(@Body() conta: Conta, @Res() res): Conta{
-        
+    public criar(@Body() conta: Conta): NestRespose {
         const contaCriada = this.contasService.criar(conta);
-        res.status(HttpStatus.CREATED).location(`/contas/${contaCriada.numeroDaConta}`).json(contaCriada);
-        return contaCriada;
+        return new NestResposneBuilder().withStatus(HttpStatus.CREATED).withHeaders({
+            'Location': `/contas/${contaCriada.numeroDaConta}`
+        }).withBody(contaCriada).build();
+        
     }
 }

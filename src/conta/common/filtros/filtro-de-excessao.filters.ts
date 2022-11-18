@@ -13,9 +13,9 @@ export class FlitroExcecaoHttp implements ExceptionFilter{
     }
 
     catch(exception: Error, host: ArgumentsHost){
-        const context = host.switchToHttp();
-        const request = context.getRequest();
-        const respost = context.getResponse();
+        const contexts = host.switchToHttp();
+        const request = contexts.getRequest();
+        const respost = contexts.getResponse();
 
         const { status, body } = exception instanceof HttpException 
         ?{
