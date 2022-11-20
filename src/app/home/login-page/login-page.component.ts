@@ -7,8 +7,8 @@ import { AuthenticateService } from '../../authenticate/authenticate.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  contaUser = '';
-  password = '';
+  contaNumber!: number;
+  password!: number;
 
   constructor(private authService: AuthenticateService) { }
 
@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   }
   
   login(){
-    this.authService.authenticate(this.contaUser, this.password).subscribe(()=>{
+    this.authService.authenticate(this.contaNumber, this.password).subscribe(()=>{
        console.log('ta funcionando');
     }, 
     (error) => {
