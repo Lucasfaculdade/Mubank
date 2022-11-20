@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Res, HttpStatus } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Res, HttpStatus, NotFoundException } from "@nestjs/common";
 import { NestRespose } from "../core/http/nest_response";
 import { NestResposneBuilder } from "../core/http/nest_response_builder";
 import { Conta } from "./conta.entity";
@@ -12,7 +12,13 @@ export class ContaController{
     @Get(':numeroDaConta')
     public buscarNumeroDaConta(@Param('numeroDaConta') numeroDaConta: number){
         const contaEncontada = this.contasService.buscarNumeroDaConta(numeroDaConta);
-
+        
+        if(!contaEncontada){
+            throw new NotFoundException({
+                statusCode: HttpStatus.NOT_FOUND,
+                message: 'Account not found.'
+            });
+        }
         return contaEncontada;
     }
     
