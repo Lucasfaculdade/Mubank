@@ -7,7 +7,7 @@ import { AuthenticateService } from '../../authenticate/authenticate.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  contaNumber!: number;
+  numeroDaConta!: number;
   password!: number;
 
   constructor(private authService: AuthenticateService) { }
@@ -16,12 +16,15 @@ export class LoginPageComponent implements OnInit {
   }
   
   login(){
-    this.authService.authenticate(this.contaNumber, this.password).subscribe(()=>{
-       console.log('ta funcionando');
+    this.authService.authenticate(this.numeroDaConta, this.password).subscribe({
+      next: () => {
+        console.log('tá funcioanod');
+      },
+      error: (error) => {
+        alert('usuário ou senha errado');
+        console.log(error);
+      }
     }, 
-    (error) => {
-      alert("Usuário ou senha invalida");
-      console.log(error);
-    },)
+    );
   }
 }
