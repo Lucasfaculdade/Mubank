@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticateService } from '../../authenticate/authenticate.service';
 
 @Component({
@@ -8,15 +9,16 @@ import { AuthenticateService } from '../../authenticate/authenticate.service';
 })
 export class LoginPageComponent implements OnInit {
   numeroDaConta!: number;
-  password!: number;
-
+  senhaDoCaixa!: number;
+  
   constructor(private authService: AuthenticateService) { }
 
   ngOnInit(): void {
+    
   }
   
   login(){
-    this.authService.authenticate(this.numeroDaConta, this.password).subscribe({
+    this.authService.authenticate(this.numeroDaConta, this.senhaDoCaixa).subscribe({
       next: () => {
         console.log('tá funcioanod');
       },

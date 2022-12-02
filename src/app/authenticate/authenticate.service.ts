@@ -9,10 +9,10 @@ export class AuthenticateService {
 
   constructor(private httpClient: HttpClient) { }
 
-  authenticate(numeroDaConta: number, password: number): Observable<any>{
-     return this.httpClient.post('http://localhost:3000/transferencia',{
+  authenticate(numeroDaConta: number, senhaDoCaixa: number): Observable<any>{
+     return this.httpClient.post('http://localhost:3000/contas',{
       numeroDaConta: numeroDaConta,
-      password: password,
+      senhaDoCaixa: senhaDoCaixa,
      })
      }
   }
