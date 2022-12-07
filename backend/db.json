@@ -20,16 +20,6 @@
       "nomeDoCliente": "Santana",
       "email": "santana@gmail.com",
       "senhaDoCaixa": 1256
-    },
-    {
-      "numeroDaConta": "1000",
-      "senhaDoCaixa": "123456",
-      "id": 4
-    },
-    {
-      "numeroDaConta": "1000",
-      "senhaDoCaixa": "1234",
-      "id": 5
     }
   ]
 }

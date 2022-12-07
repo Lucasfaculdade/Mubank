@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { UserDashboardComponent } from './home/user-dashboard/user-dashboard.component';
 
 export const routes: Routes = [
 	{
@@ -15,7 +16,8 @@ export const routes: Routes = [
 		loadChildren: ()=> import('./home/home-routing.module').then((m)=>m.HomeRoutingModule),
 	},
 	{
-	  path: 'extrato', component: ExtractComponent
+	    path: 'dashboard', component: UserDashboardComponent,
+	    loadChildren: () => import('./home/user-dashboard/user-dashboard.module').then((m)=>m.UserDashboardModule),
 	},
 	{
 	  path: 'transferencia', component: NovaTransComponent

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticateService } from '../../authenticate/authenticate.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class LoginPageComponent implements OnInit {
   numeroDaConta!: number;
   senhaDoCaixa!: number;
   
-  constructor(private authService: AuthenticateService) { }
+  constructor(
+    private authService: AuthenticateService,
+     private router: Router
+     ) { }
 
   ngOnInit(): void {
     
@@ -20,7 +24,7 @@ export class LoginPageComponent implements OnInit {
   login(){
     this.authService.authenticate(this.numeroDaConta, this.senhaDoCaixa).subscribe({
       next: () => {
-        console.log('tá funcioanod');
+        this.router.navigate(['dashboard']);
       },
       error: (error) => {
         alert('usuário ou senha errado');
