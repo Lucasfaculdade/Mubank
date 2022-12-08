@@ -1,35 +1,36 @@
-
 <h4 class="text-center"> Login </h4>
-    <form class="form mt-5" (ngSubmit)="login()" #loginForm="ngForm">
-        <div class="form-group">
-            <input class="form-control" 
-            placeholder="Número da Conta" 
-            [(ngModel)]="numeroDaConta"
-            name="numeroDaConta"
-            #userCamp="ngModel"
-            required
-            />
-            <app-mensagem 
-             *ngIf="userCamp.invalid && userCamp.touched" 
-             aviso="Número da conta é necessário">
+<form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <input class="form-control" placeholder="Número da Conta" [(ngModel)]="numeroDaConta"
+                name="numeroDaConta" #userCamp="ngModel" required />
+            <app-mensagem *ngIf="userCamp.invalid && userCamp.touched" aviso="Número da conta é necessário">
             </app-mensagem>
         </div>
+    </div>
 
-        <div class="form-group">
-            <input type="password" 
-            class="form-control" 
-            placeholder="Senha do Caixa" 
-            [(ngModel)]="senhaDoCaixa"
-            name="senhaDoCaixa"
-            #passwordCamp="ngModel"
-            required
-             />
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 mt-2">
+            <input type="password" class="form-control" placeholder="Senha do Caixa" [(ngModel)]="senhaDoCaixa"
+                    name="senhaDoCaixa" #passwordCamp="ngModel" required />
 
-             <app-mensagem 
-              *ngIf="passwordCamp.invalid && passwordCamp.touched" 
-              aviso="Senha é necessária">
+            <app-mensagem *ngIf="passwordCamp.invalid && passwordCamp.touched" aviso="Senha é necessária">
             </app-mensagem>
         </div>
+    </div>
     
-    <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Logar</button>
+    <div class="row mt-2 text-center">
+        
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+                Logar
+            </button>&nbsp;
+            <button type="submit" class="btn btn-primary" >
+                Novo aqui, cadastre-se!
+            </button>
+        </div>
+    </div>
+
 </form>

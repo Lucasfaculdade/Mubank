@@ -11,6 +11,9 @@
    margin: 0;
    padding: 0;
 }
+*_input{
+  padding: 10px;
+}
 
 a{
   color: inherit;
@@ -21,7 +24,8 @@ a{
 }
 
 .container {
-  max-width: 400px;
-  padding: 30px;
-  margin: 0 auto;
+  max-width: 200px;
+  width: 20px;
+  padding: 25px;
+  margin: 50px;
 }
