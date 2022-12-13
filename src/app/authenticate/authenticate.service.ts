@@ -6,14 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticateService {
+  
+  readonly apiURL!: string;
+  
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { 
+    
+  }
 
   authenticate(numeroDaConta: number, senhaDoCaixa: number): Observable<any>{
-     return this.httpClient.post('http://localhost:3000/contas',{
-      numeroDaConta: numeroDaConta,
-      senhaDoCaixa: senhaDoCaixa,
-     })
+     return this.httpClient.post("http://localhost:3000/contas",{
+        numeroDaConta: numeroDaConta,
+        senhaDoCaixa: senhaDoCaixa
+     });
      }
   }
 

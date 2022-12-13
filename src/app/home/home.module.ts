@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { MensagemModule } from "../components/mensagem/mensagem.module";
 import { NewAccountComponent } from './new-account/new-account.component';
@@ -15,14 +15,20 @@ import { NewAccountComponent } from './new-account/new-account.component';
         HomeComponent,
         LoginPageComponent,
         UserDashboardComponent,
-        NewAccountComponent
+        NewAccountComponent,
+
+        
     ],
     exports: [HomeComponent],
+    providers:[
+        FormBuilder
+    ],
     imports: [
         CommonModule,
         HomeRoutingModule,
         FormsModule,
-        MensagemModule
+        MensagemModule,
+        ReactiveFormsModule
     ]
 })
 export class HomeModule { }
