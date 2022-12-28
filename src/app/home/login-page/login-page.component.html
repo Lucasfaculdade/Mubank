@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <input class="form-control" placeholder="Número da Conta" [(ngModel)]="numeroDaConta"
+            <input class="form-control" placeholder="Número da Conta" [(ngModel)]="loginForm"
                 name="numeroDaConta" #userCamp="ngModel" required />
             <app-mensagem *ngIf="userCamp.invalid && userCamp.touched" aviso="Número da conta é necessário">
             </app-mensagem>
@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4 mt-2">
-            <input type="password" class="form-control" placeholder="Senha do Caixa" [(ngModel)]="senhaDoCaixa"
+            <input type="password" class="form-control" placeholder="Senha do Caixa" [(ngModel)]="loginForm"
                     name="senhaDoCaixa" #passwordCamp="ngModel" required />
 
             <app-mensagem *ngIf="passwordCamp.invalid && passwordCamp.touched" aviso="Senha é necessária">

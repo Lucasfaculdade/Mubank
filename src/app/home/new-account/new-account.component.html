@@ -1,7 +1,6 @@
 <h4 class="text-center"> Entre Para MuBank </h4>
 
-
-<form [formGroup]="newAccountForm" (submit)="register()">
+<form [formGroup]="newAccountForm" (ngSubmit)="register()">
     <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4 mt-2">
@@ -11,6 +10,7 @@
         newAccountForm.get('nomeDoCliente')?.touched"
         aviso="Nome é obrigatorio">
     </app-mensagem>
+    
     </div>
    </div>   
 
@@ -31,11 +31,10 @@
         <div class="class col-md-4 mt-2">
             <div class="form-group">
                 <input type="password" placeholder="Senha" class="form-control" formControlName="senhaDoCaixa"/>
-                <app-mensagem 
-                *ngIf="newAccountForm.get('senhaDoCaixa')?.errors &&
-                newAccountForm.get('senhaDoCaixa')?.touched"
-                aviso="Senha é obrigatorio">
-            </app-mensagem>
+              <app-mensagem
+              *ngIf="newAccountForm.get('password')?.errors?.['passwordNotMatching']"
+              mensagem="Ambas as senhas de ser iguais">
+              </app-mensagem>
             </div>
         </div>
     </div>
@@ -43,12 +42,11 @@
         <div class="col-md-4"></div>
         <div class="col-md-4 mt-2">
             <div class="form-group">
-                <input type="password" placeholder="Confirmação de Senha" class="form-control" formControlName="senhaDoCaixa"/>
-                <app-mensagem 
-                *ngIf="newAccountForm.get('senhaDoCaixa')?.errors &&
-                newAccountForm.get('senhaDoCaixa')?.touched"
-                aviso="Confirmação de senha deve ser igual a original">
-            </app-mensagem>
+                <input type="password" placeholder="Confirmação de Senha" class="form-control" formControlName="confirmPassword"/>
+               <app-mensagem
+               *ngIf="newAccountForm.get('confirmPassword')?.errors?.['passwordNotMatching']"
+               mensagem="Ambas as senhas de ser iguais">
+               </app-mensagem>
             </div>
         </div>
     </div>

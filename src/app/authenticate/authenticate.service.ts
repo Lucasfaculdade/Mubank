@@ -1,24 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { accountId } from './account-Id';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticateService {
   
-  readonly apiURL!: string;
-  
+  private readonly apiURL = 'http://localhost:3000/accounts';
+ 
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    ) { }
 
-  constructor(private httpClient: HttpClient) { 
-    
-  }
-
-  authenticate(numeroDaConta: number, senhaDoCaixa: number): Observable<any>{
-     return this.httpClient.post("http://localhost:3000/contas",{
-        numeroDaConta: numeroDaConta,
-        senhaDoCaixa: senhaDoCaixa
-     });
-     }
+  authenticate(): Observable<accountId[]>{
+      return this.httpClient.get<accountId[]>(this.apiURL);
+   }
   }
 

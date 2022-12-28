@@ -22,9 +22,11 @@
       "senhaDoCaixa": 1256
     },
     {
-      "numeroDaConta": "1000",
+      "email": "marcos@gmail.com",
+      "nomeDoCliente": "marcos",
       "senhaDoCaixa": "123456",
-      "id": 4
+      "confirmPassword": "123456",
+      "id": 5
     }
   ]
 }

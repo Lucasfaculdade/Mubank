@@ -1,4 +1,4 @@
-export interface NewAccount {
+export interface accountId {
     numeroDaConta: number,
     nomeDoCliente: string,
     email: string,

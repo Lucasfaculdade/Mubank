@@ -12,8 +12,9 @@ import { AppRoutingModule } from './app-route.module';
 import { HomeModule } from './home/home.module';
 
 
-
 registerLocaleData(localePt, 'pt');
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ registerLocaleData(localePt, 'pt');
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
  ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'},
