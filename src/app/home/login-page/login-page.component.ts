@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { accountId } from 'src/app/authenticate/account-Id';
@@ -11,6 +11,7 @@ import { AuthenticateService } from '../../authenticate/authenticate.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+ 
   loginForm!: FormGroup;
   
   constructor(
@@ -20,21 +21,29 @@ export class LoginPageComponent implements OnInit {
      ) { }
 
   ngOnInit(): void {
-    this.authService.authenticate()
-  }
-  criarForm(){
     this.loginForm = this.formBuilder.group({
-      numeroDaConta: ['', [Validators.required]],
-      senhaDoCaixa: ['', [Validators.required]]
-    });
+      numeroDaConta: ['', Validators.required],
+      senhaDoCaixa: ['', Validators.required]
+    })
   }
 
-  login(){
-   if(this.loginForm.invalid) return;
-   this.authService.authenticate().subscribe((account) =>{
-     if(!account){
-      alert('Falha na autenticação , Usuário ou senha invalido');
-     }
-   })
+  onSubmit(){
+   if(this.loginForm.valid){
+     console.log(this.loginForm.value);
+   } else {
+     this.validateAllFormFileds(this.loginForm);
+     alert("Um campo está faltando ou está invalido")
+   }
+  }
+
+  private validateAllFormFileds(formGroup: FormGroup){
+     Object.keys(formGroup.controls).forEach(field=>{
+      const control = formGroup.get(field);
+      if(control instanceof FormGroup){
+        control.markAsDirty({onlySelf: true});
+      } else if(control instanceof FormGroup){
+        this.validateAllFormFileds(control)
+      }
+     })
   }
 }

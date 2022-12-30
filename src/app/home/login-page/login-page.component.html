@@ -1,30 +1,25 @@
 <h4 class="text-center"> Login </h4>
-<form (ngSubmit)="login()" #loginForm="ngForm">
+<form [formGroup]="loginForm">
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <input class="form-control" placeholder="Número da Conta" [(ngModel)]="loginForm"
-                name="numeroDaConta" #userCamp="ngModel" required />
-            <app-mensagem *ngIf="userCamp.invalid && userCamp.touched" aviso="Número da conta é necessário">
-            </app-mensagem>
+        <div class="col-md-4 input-field" [class.error]="loginForm.controls['numeroDaConta'].dirty && loginForm.hasError('required', 'numeroDaConta')">
+            <input class="form-control" placeholder="Número da Conta" formControlName="numeroDaConta" name="numeroDaConta"/>
+            <small *ngIf="loginForm.controls['numeroDaConta'].dirty && loginForm.hasError('required', 'numeroDaConta')" class="text-danger">*Número da Conta é necessario</small>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4 mt-2">
-            <input type="password" class="form-control" placeholder="Senha do Caixa" [(ngModel)]="loginForm"
-                    name="senhaDoCaixa" #passwordCamp="ngModel" required />
-
-            <app-mensagem *ngIf="passwordCamp.invalid && passwordCamp.touched" aviso="Senha é necessária">
-            </app-mensagem>
+        <div class="col-md-4 mt-2 input-field" [class.error]="loginForm.controls['senhaDoCaixa'].dirty && loginForm.hasError('required', 'senhaDoCaixa')">
+            <input type="password" class="form-control" placeholder="Senha do Caixa" formControlName="senhaDoCaixa" name="senhaDoCaixa" required />
+            <small *ngIf="loginForm.controls['senhaDoCaixa'].dirty && loginForm.hasError('required', 'senhaDoCaixa')" class="text-danger">*Senha de Caixa é necessario</small>
         </div>
     </div>
     
     <div class="row mt-2 text-center">
         
         <div class="col-md-12">
-            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+            <button (click)="onSubmit()"  type="submit" class="btn btn-primary">
                 Logar
             </button>&nbsp;
             <button [routerLink]="['newaccount']" class="btn btn-primary" >
