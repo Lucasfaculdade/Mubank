@@ -1,12 +1,17 @@
-import { Body, Controller, Get, Param, Post, Res, HttpStatus, NotFoundException } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Res, HttpStatus, NotFoundException, Put } from "@nestjs/common";
 import { NestRespose } from "../core/http/nest_response";
 import { NestResposneBuilder } from "../core/http/nest_response_builder";
+import { atualizarContaDTO } from "./common/dto/atualizarConta.dto";
+import { ListaUserDTO } from "./common/dto/listaContas.dto";
 import { Conta } from "./conta.entity";
+import { ContaRepository } from "./conta.repository";
 import { ContasService } from "./contas.service";
 
 @Controller('contas')
 export class ContaController{
     
+    private contaRepository = new ContaRepository;
+
     constructor(private contasService: ContasService){}
 
     @Get(':numeroDaConta')
@@ -23,11 +28,28 @@ export class ContaController{
     }
     
     @Post()
-    public criar(@Body() conta: Conta): NestRespose {
-        const contaCriada = this.contasService.criar(conta);
+    public async criar(@Body() conta: Conta): Promise<NestRespose> {
+        const contaCriada = this.contasService.criar(conta); 
         return new NestResposneBuilder().withStatus(HttpStatus.CREATED).withHeaders({
-            'Location': `/contas/${contaCriada.numeroDaConta}`
+            'Location': `/contas/${(await contaCriada).numeroDaConta}`
         }).withBody(contaCriada).build();
         
+    }
+
+    @Get()
+    async listaConta(){
+        const contaCriada = await this.contaRepository.listarContas();
+        const listaConta = contaCriada.map(
+            conta => new ListaUserDTO(
+                conta.id,
+                conta.numeroDaConta
+            )
+        );
+        return listaConta;
+    }
+
+    @Put('/:ID')
+    async atualizarConta (@Param() id: string, @Body() dadosConta: atualizarContaDTO){
+        this.contaRepository.atualiza(id, dadosConta)
     }
 }

@@ -3,24 +3,25 @@ import { registerDecorator, ValidationArguments, ValidationOptions, ValidatorCon
 import { ContasService } from "./contas.service";
 
 @Injectable()
-@ValidatorConstraint()
+@ValidatorConstraint({ async: true })
 export class IsContaUnicaConstraint implements ValidatorConstraintInterface{
   
   constructor(private contasService: ContasService){}
-  
-  validate(numeroDaConta: any, validationArguments?: ValidationArguments): boolean | Promise<boolean> {
-    return !!!this.contasService.buscarNumeroDaConta(numeroDaConta);
+  async validate(value: any, validationArguments?: ValidationArguments): Promise<boolean> {
+    const contaExistente = await this.contasService.contaExistente(value)
+    return !contaExistente;
   }
+
 }
 
-export function IsContaUnica(validationOptions?: ValidationOptions) {
-    return function (object: Object, propertyName: string) {
-      registerDecorator({
-        target: object.constructor,
-        propertyName: propertyName,
-        options: validationOptions,
-        constraints: [],
-        validator: IsContaUnicaConstraint,
-      });
-    };
+export const contaUnica = (validationOptions: ValidationOptions ) => {
+  return (objeto: Object, propriedade: string) =>{
+    registerDecorator({
+      target: objeto.constructor,
+      propertyName: propriedade,
+      options: validationOptions,
+      constraints: [],
+      validator: IsContaUnicaConstraint 
+    })
   }
+}

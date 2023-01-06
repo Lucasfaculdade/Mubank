@@ -1,6 +1,6 @@
 import { Exclude, Expose } from "class-transformer";
 import { IsEmail, IsNotEmpty, IsNumber, IsString } from "class-validator";
-import { IsContaUnica } from "./is-conta-unica.validator";
+import { contaUnica } from "./is-conta-unica.validator";
 
 
 
@@ -10,7 +10,7 @@ export class Conta {
     @Expose({
         name: 'account'
     })
-    @IsContaUnica({
+    @contaUnica({
         message: 'numeroConta precisa ser unico'
     })
     @IsNotEmpty({
@@ -22,7 +22,7 @@ export class Conta {
     @Expose({
         name: 'fullName'
     })
-    @IsContaUnica({
+    @contaUnica({
         message: 'nomeDoCliente precisa ser unico'
     })
     @IsNotEmpty({
@@ -44,7 +44,7 @@ export class Conta {
     @Expose({
         name: 'password'
     })
-    @IsContaUnica({
+    @contaUnica({
         message: 'senhaDoCaixa precisa ser unico'
     })
     @IsNotEmpty({

@@ -12,14 +12,22 @@ export class ContasService{
         dataDeEntrada: new Date()
     }];
     
-    public criar(conta: Conta): Conta{
+    async criar(conta: Conta) {
         this.contas.push(conta);
         
         return conta;
     }
     
-    public buscarNumeroDaConta(numeroDaConta: number): Conta{
+   async buscarNumeroDaConta(numeroDaConta: number){
       return this.contas.find(conta => conta.numeroDaConta == numeroDaConta);
     }
+
+   async contaExistente(numeroDaConta: number){
+    const possivelConta = this.contas.find(
+        contas => contas.numeroDaConta === numeroDaConta
+    );
+
+    return possivelConta !== undefined;
+   }
 }
 
