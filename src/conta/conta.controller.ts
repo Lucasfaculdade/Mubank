@@ -3,7 +3,7 @@ import { NestRespose } from "../core/http/nest_response";
 import { NestResposneBuilder } from "../core/http/nest_response_builder";
 import { atualizarContaDTO } from "./common/dto/atualizarConta.dto";
 import { ListaUserDTO } from "./common/dto/listaContas.dto";
-import { Conta } from "./conta.entity";
+import { ContaEntity } from "./conta.entity";
 import { ContaRepository } from "./conta.repository";
 import { ContasService } from "./contas.service";
 
@@ -28,7 +28,7 @@ export class ContaController{
     }
     
     @Post()
-    public async criar(@Body() conta: Conta): Promise<NestRespose> {
+    public async criar(@Body() conta: ContaEntity): Promise<NestRespose> {
         const contaCriada = this.contasService.criar(conta); 
         return new NestResposneBuilder().withStatus(HttpStatus.CREATED).withHeaders({
             'Location': `/contas/${(await contaCriada).numeroDaConta}`
@@ -48,8 +48,13 @@ export class ContaController{
         return listaConta;
     }
 
-    @Put('/:ID')
+    @Put('/:id')
     async atualizarConta (@Param() id: string, @Body() dadosConta: atualizarContaDTO){
-        this.contaRepository.atualiza(id, dadosConta)
+        const atualizarConta = this.contaRepository.atualiza(id, dadosConta);
+
+        return {
+            conta: atualizarConta,
+            messagem:'Conta atualizada com sucesso',
+        }
     }
 }

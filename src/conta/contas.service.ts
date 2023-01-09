@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { Conta } from "./conta.entity";
+import { ContaEntity } from "./conta.entity";
 
 @Injectable()
 export class ContasService{
-    private contas: Array<Conta> = [{
+    private contas: Array<ContaEntity> = [{
         id: 1,
         numeroDaConta: 1000,
         nomeDoCliente: 'Jose',
@@ -12,7 +12,7 @@ export class ContasService{
         dataDeEntrada: new Date()
     }];
     
-    async criar(conta: Conta) {
+    async criar(conta: ContaEntity) {
         this.contas.push(conta);
         
         return conta;

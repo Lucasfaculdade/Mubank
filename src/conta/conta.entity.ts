@@ -4,7 +4,7 @@ import { contaUnica } from "./is-conta-unica.validator";
 
 
 
-export class Conta {
+export class ContaEntity {
     id: number;
     
     @Expose({
