@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { accountId } from 'src/app/authenticate/account-Id';
+import { accountId } from 'src/app/authenticate/user/account-Id';
 import { AuthenticateService } from '../../authenticate/authenticate.service';
 
 @Component({
@@ -11,8 +11,8 @@ import { AuthenticateService } from '../../authenticate/authenticate.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
- 
   loginForm!: FormGroup;
+  formGroup: any;
   
   constructor(
     private authService: AuthenticateService,
@@ -29,7 +29,9 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(){
    if(this.loginForm.valid){
-     console.log(this.loginForm.value);
+     this.authService.authenticate(this.formGroup.numeroDaConta, this.formGroup.senhaDoCaixa).subscribe(() =>{
+       console.log('authenticando');
+     })
    } else {
      this.validateAllFormFileds(this.loginForm);
      alert("Um campo está faltando ou está invalido")

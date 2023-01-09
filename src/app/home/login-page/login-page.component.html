@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4 input-field" [class.error]="loginForm.controls['numeroDaConta'].dirty && loginForm.hasError('required', 'numeroDaConta')">
-            <input class="form-control" placeholder="Número da Conta" formControlName="numeroDaConta" name="numeroDaConta"/>
+            <input class="form-control" placeholder="Número da Conta" formControlName="numeroDaConta" name="numeroDaConta" />
             <small *ngIf="loginForm.controls['numeroDaConta'].dirty && loginForm.hasError('required', 'numeroDaConta')" class="text-danger">*Número da Conta é necessario</small>
         </div>
     </div>
